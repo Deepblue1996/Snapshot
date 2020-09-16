@@ -68,7 +68,6 @@ import com.deep.snapshot.util.ScreenUtil;
 import com.deep.snapshot.view.dialog.BluetoothDialogScreen;
 import com.deep.snapshot.view.dialog.TextToastDialogScreen;
 import com.deep.snapshot.weight.CameraView;
-import com.github.florent37.viewanimator.AnimationListener;
 import com.github.florent37.viewanimator.ViewAnimator;
 import com.prohua.roundlayout.RoundAngleFrameLayout;
 
@@ -415,6 +414,9 @@ public class MainScreen extends TBaseScreen {
         });
     }
 
+    /**
+     * FFmpeg转码监听
+     */
     private FFmpegKit.KitInterface kitInterface = new FFmpegKit.KitInterface() {
         @Override
         public void onStart() {
@@ -477,6 +479,12 @@ public class MainScreen extends TBaseScreen {
 
     private ViewAnimator viewAnimator;
 
+    /**
+     * 监听后台服务
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
@@ -617,6 +625,9 @@ public class MainScreen extends TBaseScreen {
         }
     }
 
+    /**
+     * 初始化AI引擎
+     */
     private void createKitInstance() {
         FaceDetector.FaceDetectorCreateConfig createConfig = new FaceDetector.FaceDetectorCreateConfig();
         createConfig.mode = FaceDetector.FaceDetectMode.MOBILE_DETECT_MODE_VIDEO;

@@ -70,6 +70,9 @@ public class ScreenRecordService extends Service {
         Log.i(TAG, "Service onCreate() is called");
     }
 
+    /**
+     * 创建通知栏
+     */
     private void createNotificationChannel() {
         Notification.Builder builder = new Notification.Builder(this.getApplicationContext()); //获取一个Notification构造器
         Intent nfIntent = new Intent(this, CoreApp.class); //点击后跳转的界面，可以设置跳转数据
@@ -127,11 +130,19 @@ public class ScreenRecordService extends Service {
         //return Service.START_NOT_STICKY;
     }
 
+    /**
+     * 创建媒体
+     * @return
+     */
     private MediaProjection createMediaProjection() {
         Log.i(TAG, "Create MediaProjection");
         return ((MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE)).getMediaProjection(mResultCode, mResultData);
     }
 
+    /**
+     * 初始化视频流
+     * @return
+     */
     @SuppressLint("WrongConstant")
     private VirtualDisplay createVirtualDisplay() {
 
@@ -142,6 +153,10 @@ public class ScreenRecordService extends Service {
                 DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR, mImageReader.getSurface(), null, null);
     }
 
+    /**
+     * 开始录屏
+     * @return
+     */
     public boolean startRecord() {
         if (mMediaProjection == null || running) {
             Lag.i("报错: mMediaProjection:" + mMediaProjection + " running:" + running);
@@ -164,6 +179,9 @@ public class ScreenRecordService extends Service {
 
     private boolean hasInit = false;
 
+    /**
+     * 初始化数据帧
+     */
     private void initRecorder() {
         mImageReader.setOnImageAvailableListener(reader -> {
             Lag.i("录屏每一帧");
@@ -220,6 +238,10 @@ public class ScreenRecordService extends Service {
         void listenByteRGBA(byte[] data, int width, int height, int cameraOrientation);
     }
 
+    /**
+     * 停止录屏
+     * @return
+     */
     public boolean stopRecord() {
         if (!running) {
             return false;
