@@ -1,0 +1,191 @@
+<resources>
+    <string name="app_name">随拍</string>
+
+    <string name="setting_language_auto">跟随系统</string>
+    <string name="setting_language_english">English</string>
+    <string name="setting_simplified_chinese">简体中文</string>
+    <string name="setting_traditional_chinese">繁體中文</string>
+
+    <string name="ok">确定</string>
+    <string name="no">取消</string>
+
+    <string name="bixudakaiquanxian">必须打开权限</string>
+
+    <string name="qidong">启动</string>
+    <string name="lanya">蓝牙</string>
+    <string name="shebei">设备</string>
+    <string name="jiare">加热</string>
+    <string name="anmo">按摩</string>
+
+    <string name="jiarewendu">加热温度</string>
+    <string name="jiareqidong">加热启动</string>
+    <string name="anmoqidong">按摩启动</string>
+    <string name="anmomoshi">按摩模式</string>
+    <string name="dingshiguanji">定时关机(分钟)</string>
+    <string name="duima">对码</string>
+    <string name="qingma">清码</string>
+    <string name="xuanzecaozuo">选择操作类型</string>
+
+    <string name="quxiaodingshiguanji">取消定时关机</string>
+
+    <string name="shezhiyuyan">设置语言</string>
+    <string name="shezhi">设置</string>
+
+    <string name="guanbi">关闭</string>
+    <string name="kaiqi">开启</string>
+    <string name="moshi1">模式一</string>
+    <string name="moshi2">模式二</string>
+    <string name="moshi3">模式三</string>
+    <string name="moshi4">模式四</string>
+    <string name="moshi5">模式五</string>
+
+    <string name="jiareyiguanbi">加热已关闭</string>
+    <string name="tiaojiejinduhuifujiare">调节进度条恢复加热</string>
+
+    <string name="huanyishiyong">欢迎使用穿戴智能App</string>
+
+    <string name="quedingtuichuyingyongchengxu">确定退出应用程序?</string>
+
+    <string name="quedingquxiaodingshiguanji">确定取消定时关机?</string>
+
+    <string name="copy_right">Copyright © 2020 All rights Reserved.</string>
+
+    <string name="shezhidingshikaiji">设置定时开机</string>
+    <string name="shezhidingshiguanji">设置定时关机</string>
+
+    <string name="duima_shebei_liebiao_string">可对码设备列表</string>
+    <string name="saomiao_liebiao_string">列表为目前扫描的设备</string>
+    <string name="zhengzaisaomiao_string">正在扫描可连接设备…</string>
+    <string name="chaoshidianjilianjie_string">扫描已超时, 点击重新扫描</string>
+    <string name="keqingma_shebei_string">可清码设备列表</string>
+
+    <string name="yilianjie_string">已连接</string>
+    <string name="kelianjie_string">可连接</string>
+
+    <string name="yipeiduishebei">已配对设备</string>
+    <string name="kelianjiexinshebei">可连接新设备</string>
+    <string name="jiancedaoxinhaoyilianjie">检测到信号 已连接</string>
+    <string name="jiancebudaoxinhaoweilianjie">检测不到信号 未连接</string>
+    <string name="jiancedaoxinhaoweilianjie">检测到信号 未连接</string>
+    <string name="shbeiweipeidui">设备未配对</string>
+    <string name="lanyadangqianwufalianjie">蓝牙当前无法连接，请确认设备在周围</string>
+    <string name="saomiaochaoshiqingdianji">扫描超时，请点击重新扫描\.\.\.</string>
+
+    <string name="duimachenggong">连接成功</string>
+    <string name="duimachaoshi">连接超时</string>
+    <string name="qingmachenggong">断开成功</string>
+    <string name="qingmachaoshi">断开超时</string>
+
+    <string name="shebeilianjiezhong">设备连接中，请稍等</string>
+    <string name="shebeiduankaizhong">设备断开中，请稍等</string>
+    <string name="qingxiankaiqishebei">请先开启设备</string>
+    <string name="string_shunshizhen">顺时针转</string>
+    <string name="string_xuanzhuankaiguan">旋转开关</string>
+    <string name="string_nishizhenzhuan">逆时针转</string>
+    <string name="string_dingshikaiji">定时开机</string>
+    <string name="string_dingshiguanji">定时关机</string>
+    <string name="string_liangdu">亮度</string>
+    <string name="string_zhuansu">转速</string>
+
+    <string name="string_shebeixuanze">型号选择</string>
+    <string name="string_shebei1">型号1</string>
+    <string name="string_shebei2">型号2</string>
+
+    <string name="str_lianjie_biaoti">请先连接设备</string>
+    <string name="str_lianjie_xiaobiaoti">列表为目前扫描到的设备和新的设备</string>
+    <string name="peiduishebei">配对中，请长按设备的\"上热源+\" 3 秒</string>
+    <string name="zhengzaisaomiao">正在扫描中，请稍等片刻\.\.\.</string>
+    <string name="shebeibianji">设备编辑</string>
+    <string name="shebeimingcheng">设备名称</string>
+    <string name="quxiaopeidui">取消配对</string>
+    <string name="lianjieduankai">连接断开</string>
+    <string name="yaokongqicaidan">遥控器菜单</string>
+    <string name="saomiaoxinshebei">扫描新设备</string>
+    <string name="xiangce">相册</string>
+    <string name="saomiaoerweima">将二维码/条码放入框内，即可自动扫描</string>
+    <string name="qingsaoma">请扫码，添加新设备</string>
+    <string name="saomiaochenggong">扫码成功</string>
+    <string name="saomiaowuxiao">二维码无效</string>
+    <string name="menu1_string">重命名</string>
+    <string name="menu2_string">分享</string>
+    <string name="menu3_string">删除</string>
+    <string name="fenxiangshebeierweima">分享设备二维码</string>
+    <string name="baocunzhibendineicun">保存至本地内存</string>
+    <string name="mingchengbunengweikong">设备名称不能为空</string>
+    <string name="about_our_str">关于我们</string>
+    <string name="saveshibai">保存失败</string>
+    <string name="savechenggong">保存成功，内存地址: </string>
+    <string name="lianxiwomen">联系方式</string>
+    <string name="wuqi_text_string">武器</string>
+    <string name="lunshiche_text_string">轮式车</string>
+    <string name="lvdaiche_text_string">履带车</string>
+    <string name="qiangbamoshi_text_string">强爬模式</string>
+    <string name="shezhi_text_string">设置</string>
+    <string name="duipin_text_string">对频</string>
+
+    <string name="str_duimawancheng">连接完成</string>
+    <string name="str_duimazhong">连接中，请稍后</string>
+    <string name="car_1_string">车型 1</string>
+    <string name="car_2_string">车型 2</string>
+    <string name="car_3_string">车型 3</string>
+    <string name="car_4_string">车型 4</string>
+    <string name="save_string">保存</string>
+    <string name="and_save_string">是否覆盖</string>
+    <string name="yes_string">是</string>
+    <string name="no_string">否</string>
+    <string name="car_string">车型</string>
+    <string name="lang_string">语言</string>
+    <string name="guan_wang_string">官网</string>
+
+    <string name="str_zhouweishebei">周围设备</string>
+    <string name="str_zhengzaisaomiaoshebei">正在扫描周围设备…</string>
+    <string name="weitiao_string">微调</string>
+    <string name="on_off_string">开关</string>
+    <string name="shache_string">刹车</string>
+    <string name="zidong_shache">自动刹车</string>
+    <string name="jiaopan_string">绞盘</string>
+    <string name="jiashixuanze_string">驾驶选择</string>
+    <string name="fashe_string">发射</string>
+    <string name="jingyin_string">换挡</string>
+    <string name="silun_string">四轮转向</string>
+    <string name="shou_string">收</string>
+    <string name="fang_string">放</string>
+    <string name="yanshi_shou">延时收</string>
+    <string name="tongxiang_string">同向</string>
+    <string name="qianzhuan_string">前转</string>
+    <string name="houzhuan_string">后转</string>
+    <string name="yixiang_string">异向</string>
+    <string name="help_text_string">帮助说明</string>
+    <string name="mingju">坚实品质，衡量标准</string>
+    <string name="suixinerpai">Following your racquet</string>
+    <string name="photo_string">照片</string>
+    <string name="video_string">视频</string>
+    <string name="shanguang_opened">闪光灯已打开</string>
+    <string name="shanguang_closed">闪光灯已关闭</string>
+    <string name="aiphoto_closed">AI跟随拍摄已取消</string>
+    <string name="aiphoto_opened">AI跟随拍摄已开启</string>
+    <string name="device_connect_faile">设备连接失败</string>
+    <string name="device_connect_success">设备连接成功</string>
+    <string name="device_disconnect">设备连接断开</string>
+    <string name="device_connect_time">设备连接超时</string>
+    <string name="device_connect_loading">连接设备中</string>
+    <string name="loacl_photo">本地图片</string>
+    <string name="del_photo">确定删除图片?</string>
+    <string name="shanchu_success">删除成功</string>
+    <string name="shanchu_failed">删除失败</string>
+    <string name="screen_ro">检测到屏幕旋转</string>
+    <string name="screen_ro_success">保存完成</string>
+    <string name="screen_ro_success_z">拍摄完成, 转码中</string>
+    <string name="quedingkaiqizhibogensui">确定开启直播跟随?</string>
+    <string name="quxiaokaiqizhibogensui">确定取消直播跟随?</string>
+    <string name="kaiqirenliangensuihoutai">已开启人脸跟随\n支持后台运行</string>
+    <string name="dianjiquxiaogensui">点击取消跟随</string>
+
+    <string-array name="values">
+        <item>关闭</item>
+        <item>高频</item>
+        <item>变频</item>
+        <item>柔和</item>
+        <item>经典</item>
+    </string-array>
+</resources>

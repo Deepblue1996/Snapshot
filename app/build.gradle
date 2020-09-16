@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.deep.snapshot"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 16
+        versionName "1.0"
+        multiDexEnabled true
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            project.gradle.startParameter.excludedTaskNames.add('lint')  // 屏蔽lint耗时检查
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            jniLibs.srcDirs = ['src/main/libs']
+            jni.srcDirs=[]
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.deep:DpWorkAX:1.5.7'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'com.deep:Bun:1.5.8'
+    implementation files('libs/FastBLE-2.3.4.jar')
+    implementation 'com.alibaba.android.mnnkit:facedetection:0.0.5'
+    implementation 'com.alibaba.android.mnnkit:handgesturedetection:0.0.6'
+    implementation 'com.alibaba.android.mnnkit:portraitsegmentation:0.0.6'
+    implementation 'com.moushao.tech:ffmpeg-4-android:1.0.1'
+    //implementation project(':libyuv')
+}

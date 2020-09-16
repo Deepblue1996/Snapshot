@@ -1,0 +1,191 @@
+<resources>
+    <string name="app_name">Snapshot</string>
+
+    <string name="setting_language_auto">Follow System</string>
+    <string name="setting_language_english">English</string>
+    <string name="setting_simplified_chinese">简体中文</string>
+    <string name="setting_traditional_chinese">繁體中文</string>
+
+    <string name="ok">Confirm</string>
+    <string name="no">Cancel</string>
+
+    <string name="bixudakaiquanxian">Permissions must be turned on</string>
+
+    <string name="qidong">Launch</string>
+    <string name="lanya">Bluetooth</string>
+    <string name="shebei">Device</string>
+    <string name="jiare">Heating</string>
+    <string name="anmo">Massage</string>
+
+    <string name="jiarewendu">Temperature</string>
+    <string name="jiareqidong">Heating start</string>
+    <string name="anmoqidong">Massage start</string>
+    <string name="anmomoshi">Mode</string>
+    <string name="dingshiguanji">Timing shutdown(minute)</string>
+    <string name="duima">Connect</string>
+    <string name="qingma">Disconnect</string>
+    <string name="xuanzecaozuo">Select operation type</string>
+
+    <string name="quxiaodingshiguanji">Cancel shutdown</string>
+
+    <string name="shezhiyuyan">Set language</string>
+
+    <string name="shezhi">Setting</string>
+
+    <string name="guanbi">Off</string>
+    <string name="kaiqi">On</string>
+    <string name="moshi1">Model 1</string>
+    <string name="moshi2">Model 2</string>
+    <string name="moshi3">Model 3</string>
+    <string name="moshi4">Model 4</string>
+    <string name="moshi5">Model 5</string>
+    <string name="jiareyiguanbi">Heating off</string>
+    <string name="tiaojiejinduhuifujiare">Adjust progress bar recovery</string>
+
+    <string name="huanyishiyong">Welcome to Wear Smart App</string>
+
+    <string name="quedingtuichuyingyongchengxu">Are you sure to exit the application?</string>
+
+    <string name="quedingquxiaodingshiguanji">Make sure to cancel the scheduled shutdown?</string>
+
+    <string name="copy_right">Copyright © 2020 All rights Reserved.</string>
+
+    <string name="shezhidingshikaiji">Set timing startup</string>
+    <string name="shezhidingshiguanji">Set timing shutdown</string>
+
+    <string name="duima_shebei_liebiao_string">List of devices that can be connected</string>
+    <string name="saomiao_liebiao_string">List of devices currently scanned</string>
+    <string name="zhengzaisaomiao_string">Scanning connecting device…</string>
+    <string name="chaoshidianjilianjie_string">The scan timeout has expired and click rescan</string>
+    <string name="keqingma_shebei_string">List of devices that can be cleared</string>
+
+    <string name="yilianjie_string">Connected</string>
+    <string name="kelianjie_string">Connect</string>
+
+    <string name="duimachenggong">Connected success</string>
+    <string name="duimachaoshi">Connected timeout</string>
+    <string name="qingmachenggong">Disconnected success</string>
+    <string name="qingmachaoshi">Disconnected timeout</string>
+
+    <string name="yipeiduishebei">Paired device</string>
+    <string name="kelianjiexinshebei">New devices can be connected</string>
+    <string name="jiancedaoxinhaoyilianjie">Signal detected connected</string>
+    <string name="jiancebudaoxinhaoweilianjie">No signal unconnected detected</string>
+    <string name="jiancedaoxinhaoweilianjie">Signal not connected detected</string>
+    <string name="shbeiweipeidui">Device unmatched</string>
+    <string name="lanyadangqianwufalianjie">Bluetooth connection is not available. Please make sure the device is around</string>
+    <string name="saomiaochaoshiqingdianji">Scan timeout, please click rescan\.\.\.</string>
+
+    <string name="shebeilianjiezhong">The device is connecting, please wait</string>
+    <string name="shebeiduankaizhong">The device is disconnecting, please wait</string>
+    <string name="qingxiankaiqishebei">Please turn on the equipment first</string>
+    <string name="string_shunshizhen">Clockwise</string>
+    <string name="string_xuanzhuankaiguan">Rotary switch</string>
+    <string name="string_nishizhenzhuan">Counter</string>
+    <string name="string_dingshikaiji">Timing boot</string>
+    <string name="string_dingshiguanji">Timing shutdown</string>
+    <string name="string_liangdu">Brightness</string>
+    <string name="string_zhuansu">Speed</string>
+
+    <string name="string_shebeixuanze">Model selection</string>
+    <string name="string_shebei1">Model 1</string>
+    <string name="string_shebei2">Model 2</string>
+
+    <string name="str_lianjie_biaoti">Please connect the device first</string>
+    <string name="str_lianjie_xiaobiaoti">List of devices currently scanned and new devices</string>
+    <string name="peiduishebei">During pairing, please press the \" heat source +\" of the device for 3 seconds</string>
+    <string name="zhengzaisaomiao">Scanning is underway, please wait for a moment\.\.\.</string>
+    <string name="shebeibianji">Edit Equipment</string>
+    <string name="shebeimingcheng">Equipment name</string>
+    <string name="quxiaopeidui">Cancel the pairing</string>
+    <string name="lianjieduankai">Connection is broken</string>
+    <string name="yaokongqicaidan">Menu</string>
+    <string name="saomiaoxinshebei">Scan</string>
+    <string name="xiangce">Photo</string>
+    <string name="saomiaoerweima">Put the qr connected/bar connect into the box, you can automatically scan</string>
+    <string name="qingsaoma">Please scan the connect to add a new device</string>
+    <string name="saomiaochenggong">Sweep connected success</string>
+    <string name="saomiaowuxiao">Invalid qr connected</string>
+    <string name="menu1_string">Rename</string>
+    <string name="menu2_string">Share</string>
+    <string name="menu3_string">Delete</string>
+    <string name="fenxiangshebeierweima">Shared device qr connected</string>
+    <string name="baocunzhibendineicun">Save to local memory</string>
+    <string name="mingchengbunengweikong">Device name cannot be empty</string>
+    <string name="about_our_str">About Us</string>
+    <string name="saveshibai">Save failed</string>
+    <string name="savechenggong">Save successfully, memory address:</string>
+    <string name="lianxiwomen">Contact</string>
+    <string name="wuqi_text_string">Weapon</string>
+    <string name="lunshiche_text_string">Wheel</string>
+    <string name="lvdaiche_text_string">Track</string>
+    <string name="qiangbamoshi_text_string">4WS</string>
+    <string name="shezhi_text_string">Setting</string>
+    <string name="duipin_text_string">Bind</string>
+
+    <string name="str_duimawancheng">Connected completion</string>
+    <string name="str_duimazhong">Check the connected, please hold</string>
+    <string name="car_1_string">Car 1</string>
+    <string name="car_2_string">Car 2</string>
+    <string name="car_3_string">Car 3</string>
+    <string name="car_4_string">Car 4</string>
+    <string name="save_string">Save</string>
+    <string name="and_save_string">Whether or not covered</string>
+    <string name="yes_string">Yes</string>
+    <string name="no_string">No</string>
+    <string name="car_string">Car</string>
+    <string name="lang_string">Language</string>
+    <string name="guan_wang_string">Store</string>
+
+    <string name="str_zhouweishebei">Available Devices</string>
+    <string name="str_zhengzaisaomiaoshebei">Searching…</string>
+    <string name="weitiao_string">Trim</string>
+    <string name="on_off_string">On/Off</string>
+    <string name="shache_string">Brake</string>
+    <string name="zidong_shache">Drag Brake</string>
+    <string name="jiaopan_string">Winch</string>
+    <string name="jiashixuanze_string">Drive Mode</string>
+    <string name="fashe_string">Launch</string>
+    <string name="jingyin_string">Gear Shift</string>
+    <string name="silun_string">Wheel steer</string>
+    <string name="shou_string">Retract</string>
+    <string name="fang_string">Release</string>
+    <string name="yanshi_shou">Delay</string>
+    <string name="tongxiang_string">Crab Walk</string>
+    <string name="qianzhuan_string">Front Wheel\nSteer</string>
+    <string name="houzhuan_string">Rear Wheel\nSteer</string>
+    <string name="yixiang_string">4 Wheel\nSteer</string>
+    <string name="help_text_string">Help</string>
+    <string name="mingju">Solid quality is the yardstick</string>
+    <string name="suixinerpai">Following your racquet</string>
+    <string name="photo_string">Photo</string>
+    <string name="video_string">Video</string>
+    <string name="shanguang_opened">Flash is on</string>
+    <string name="shanguang_closed">Flash is off</string>
+    <string name="aiphoto_closed">AI follow shoot has been cancelled</string>
+    <string name="aiphoto_opened">AI follow shoot has been opened</string>
+    <string name="device_connect_faile">Device connection failure</string>
+    <string name="device_connect_success">Device connected successfully</string>
+    <string name="device_disconnect">Device disconnect</string>
+    <string name="device_connect_time">Device connection timeout</string>
+    <string name="device_connect_loading">Connecting device</string>
+    <string name="loacl_photo">Local image</string>
+    <string name="del_photo">Make sure to delete the image?</string>
+    <string name="shanchu_success">Delete success</string>
+    <string name="shanchu_failed">Delete failed</string>
+    <string name="screen_ro">Screen rotation detected</string>
+    <string name="screen_ro_success">finish Saved</string>
+    <string name="screen_ro_success_z">Finished shooting, transcoding</string>
+    <string name="quedingkaiqizhibogensui">Make sure to enable live follow?</string>
+    <string name="quxiaokaiqizhibogensui">Make sure to cancel live follow?</string>
+    <string name="kaiqirenliangensuihoutai">Face following \n enabled for background running</string>
+    <string name="dianjiquxiaogensui">Click unfollow</string>
+
+    <string-array name="values">
+        <item>Off</item>
+        <item>High frequency</item>
+        <item>Frequency conversion</item>
+        <item>soft</item>
+        <item>classic</item>
+    </string-array>
+</resources>

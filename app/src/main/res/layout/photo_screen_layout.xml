@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000">
+
+    <LinearLayout
+        android:layout_above="@+id/bottomLin"
+        android:id="@+id/topLin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.deep.dpwork.weight.StatusBarPaddingView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#222" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#333"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:id="@+id/backTouchLin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="2dp">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@mipmap/ic_back_white" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:text="@string/loacl_photo"
+                android:textColor="@color/mBackGround"
+                android:textSize="@dimen/smallSFontSize" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutPlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <SurfaceView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_pauseView"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:layout_width="60dp"
+                android:src="@mipmap/ic_pause_img"
+                android:layout_height="60dp"/>
+        </RelativeLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomLin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#333"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <com.prohua.roundlayout.RoundAngleFrameLayout
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"
+            app:radius="10dp">
+
+            <LinearLayout
+                android:id="@+id/delTouch"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingStart="100dp"
+                android:paddingEnd="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#222">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/ic_del" />
+            </LinearLayout>
+        </com.prohua.roundlayout.RoundAngleFrameLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.prohua.roundlayout.RoundAngleFrameLayout
+                android:id="@+id/connectToastLin"
+                android:layout_width="wrap_content"
+                android:alpha="0"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:radius="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#55000000"
+                    android:paddingStart="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/connectToastText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/device_connect_loading"
+                        android:textColor="@color/mBackGround"
+                        android:textSize="@dimen/smallFontSize" />
+                </LinearLayout>
+            </com.prohua.roundlayout.RoundAngleFrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
