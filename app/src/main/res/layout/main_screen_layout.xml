@@ -316,6 +316,14 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </com.prohua.roundlayout.RoundAngleFrameLayout>
+
+        <ImageView
+            android:id="@+id/picImg"
+            android:rotation="270"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
     </LinearLayout>
 
     <View

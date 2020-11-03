@@ -40,6 +40,7 @@ import com.alibaba.android.mnnkit.entity.MNNCVImageFormat;
 import com.alibaba.android.mnnkit.entity.MNNFlipType;
 import com.alibaba.android.mnnkit.intf.InstanceCreatedListener;
 import com.clj.fastble.callback.BleGattCallback;
+import com.clj.fastble.callback.BleScanCallback;
 import com.clj.fastble.data.BleDevice;
 import com.clj.fastble.exception.BleException;
 import com.deep.dpwork.annotation.DpLayout;
@@ -61,9 +62,12 @@ import com.deep.snapshot.event.HideBlackAnimEvent;
 import com.deep.snapshot.event.OkPermissionEvent;
 import com.deep.snapshot.event.SwitchLangEvent;
 import com.deep.snapshot.event.UpdateViewEvent;
+import com.deep.snapshot.listener.BlueScanCallback;
 import com.deep.snapshot.service.ScreenRecordService;
 import com.deep.snapshot.util.BleUtil;
 import com.deep.snapshot.util.FileUtil;
+import com.deep.snapshot.util.JumpUtil;
+import com.deep.snapshot.util.NV21ToBitmap;
 import com.deep.snapshot.util.ScreenUtil;
 import com.deep.snapshot.view.dialog.BluetoothDialogScreen;
 import com.deep.snapshot.view.dialog.TextToastDialogScreen;
@@ -130,6 +134,9 @@ public class MainScreen extends TBaseScreen {
     @BindView(R.id.timeLinText)
     public TextView timeLinText;
 
+    @BindView(R.id.picImg)
+    public ImageView picImg;
+
     public static int rotateDegree;// 设备旋转角度：0/90/180/360
 
     private SurfaceHolder mDrawSurfaceHolder;
@@ -160,7 +167,9 @@ public class MainScreen extends TBaseScreen {
 
     private BleGattCallback bleGattCallback;
 
-    private Point point43;
+    private BlueScanCallback blueScanCallback;
+
+    private Rect point43;
 
     private long timeTurnLong = 0;
 
@@ -171,6 +180,8 @@ public class MainScreen extends TBaseScreen {
     private boolean screenLo = false;
 
     private int noSwitch = 0;
+
+    private BleDevice bleDevice = null;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -343,22 +354,50 @@ public class MainScreen extends TBaseScreen {
 
             @Override
             public void onConnectFail(BleDevice bleDevice, BleException e) {
+                Lag.i("蓝牙连接失败");
                 bleTouch.setImageResource(R.mipmap.ic_blue);
                 BleUtil.getInstance().disconncetDeivce();
+                toast(lang(R.string.shebeiyidkai));
+                BleUtil.getInstance().startScan();
+                JumpUtil.getInstance().stop();
+                MainScreen.this.bleDevice = null;
             }
 
             @Override
             public void onConnectSuccess(BleDevice bleDevice, BluetoothGatt bluetoothGatt, int i) {
+                Lag.i("蓝牙连接成功");
                 bleTouch.setImageResource(R.mipmap.ic_blue_connect);
+                toast(lang(R.string.device_connect_success));
+                JumpUtil.getInstance().start();
             }
 
             @Override
             public void onDisConnected(boolean b, BleDevice bleDevice, BluetoothGatt bluetoothGatt, int i) {
+                Lag.i("蓝牙断开");
                 bleTouch.setImageResource(R.mipmap.ic_blue);
                 BleUtil.getInstance().disconncetDeivce();
+                toast(lang(R.string.shebeiyidkai));
+                BleUtil.getInstance().startScan();
+                JumpUtil.getInstance().stop();
+                MainScreen.this.bleDevice = null;
             }
         };
         BleUtil.getInstance().addDeviceConnectListener(bleGattCallback);
+
+        blueScanCallback = (device, rssi, scanRecord) -> {
+            Lag.i("扫描到设备, name: " + device.getName() + " ble:" + bleDevice);
+            if (bleDevice != null) {
+                return;
+            }
+            if (device.getName() != null && device.getName().equals("RX-Face")) {
+                Lag.i("已扫描到设备");
+                bleDevice = device;
+                BleUtil.getInstance().stopScan();
+                BleUtil.getInstance().connectDevice(bleDevice);
+            }
+        };
+        BleUtil.getInstance().addDeviceScanListener(blueScanCallback);
+        BleUtil.getInstance().startScan();
 
         flashTouch.setOnClickListener(v -> {
             flashBool = !flashBool;
@@ -481,6 +520,7 @@ public class MainScreen extends TBaseScreen {
 
     /**
      * 监听后台服务
+     *
      * @param requestCode
      * @param resultCode
      * @param data
@@ -644,7 +684,11 @@ public class MainScreen extends TBaseScreen {
         });
     }
 
+    private NV21ToBitmap nv21ToBitmap;
+
     private void runInit() {
+
+        nv21ToBitmap = new NV21ToBitmap(_dpActivity);
 
         // point view
         SurfaceView drawView = superView.findViewById(R.id.points_view);
@@ -662,6 +706,8 @@ public class MainScreen extends TBaseScreen {
 
             @Override
             public void onPreviewFrame(byte[] data, int width, int height, int cameraOrientation) {
+                //Bitmap bitmap = nv21ToBitmap.nv21ToBitmap(data, width, height);
+                //picImg.setImageBitmap(bitmap);
                 refreshFace(data, width, height, cameraOrientation);
             }
 
@@ -763,7 +809,7 @@ public class MainScreen extends TBaseScreen {
 
         }
 
-        Lag.i("照相机 延迟:" + timeCostText + " 信息:" + yprText + " 动作:" + faceActionText);
+        //Lag.i("照相机 延迟:" + timeCostText + " 信息:" + yprText + " 动作:" + faceActionText);
 
         DrawResult(scores, rects, keypts, faceCount, cameraOrientation, rotateDegree);
     }
@@ -815,9 +861,9 @@ public class MainScreen extends TBaseScreen {
 
         }
 
-        Lag.i("录屏 延迟:" + timeCostText + " 信息:" + yprText + " 动作:" + faceActionText);
+        //Lag.i("录屏 延迟:" + timeCostText + " 信息:" + yprText + " 动作:" + faceActionText);
 
-        notResult(keypts2, faceCount);
+        notResult(rects2, keypts2, faceCount);
     }
 
     private String faceActionDesc(Map<String, Boolean> faceActionMap) {
@@ -922,12 +968,6 @@ public class MainScreen extends TBaseScreen {
 //                    if (true) {
 //                        canvas.drawText(j + "", keyX * kx, keyY * ky, PointOrderPaint); //标注106点的索引位置
 //                    }
-                    if (j == 43 && timeTurnLong < System.currentTimeMillis() - 50) {
-                        point43 = new Point((int) (keyX * kx), 0);
-                        Lag.i("43 x:" + point43.x + " y:" + point43.y);
-                        timeTurnLong = System.currentTimeMillis();
-                        sendWrite();
-                    }
                 }
 
                 float left = rects[0];
@@ -943,6 +983,12 @@ public class MainScreen extends TBaseScreen {
                 canvas.drawLine(left * kx, bottom * ky,
                         left * kx, top * ky, KeyLinesPaint);
 
+                if (timeTurnLong < System.currentTimeMillis() - 50) {
+                    point43 = new Rect((int) (left), 0, (int) (right), 0);
+                    Lag.i("人脸 1:" + point43.left + " 31:" + point43.right);
+                    timeTurnLong = System.currentTimeMillis();
+                    sendWrite();
+                }
                 Lag.i("left x:" + left * kx + " y:" + top * ky);
                 //canvas.drawText(scores[i] + "", left * kx, top * ky - 10, ScorePaint);
             }
@@ -956,32 +1002,38 @@ public class MainScreen extends TBaseScreen {
         }
     }
 
-    private void notResult(float[] facePoints, int faceCount) {
+    private void notResult(float[] rects, float[] facePoints, int faceCount) {
 
         float kx = 1.0f, ky = 1.0f;
 
         // 绘制人脸关键点
         for (int i = 0; i < faceCount; i++) {
-            for (int j = 0; j < 106; j++) {
-                float keyX = facePoints[i * 106 * 2 + j * 2];
-                float keyY = facePoints[i * 106 * 2 + j * 2 + 1];
-                if (j == 43 && timeTurnLong < System.currentTimeMillis() - 50) {
-                    point43 = new Point((int) (keyX * kx), 0);
-                    Lag.i("43 x:" + point43.x + " y:" + point43.y);
-                    timeTurnLong = System.currentTimeMillis();
-                    sendWrite();
-                }
+            if (timeTurnLong < System.currentTimeMillis() - 50) {
+                float left = rects[0];
+                float right = rects[2];
+                point43 = new Rect((int) (left), 0, (int) (right), 0);
+                Lag.i("人脸 1:" + point43.left + " 31:" + point43.right);
+                timeTurnLong = System.currentTimeMillis();
+                sendWrite();
             }
-
         }
     }
 
     private void sendWrite() {
         byte[] data = new byte[1];
-        int dw = screenWidth / 2;
-        if (point43.x < dw - 20) {
+        // 屏幕大小
+        int dw = screenWidth;
+        // 头大小
+        int tw = point43.right - point43.left;
+        // 计算的规定 x 位置
+        int jl = DisplayUtil.dip2px(_dpActivity, 40);
+        int tlx = dw / 2 - tw / 2 - jl;
+        int tlr = dw / 2 + tw / 2 + jl;
+        Lag.i("人脸 左边最左位置:" + tlx + " 当前位置:" + point43.left);
+        Lag.i("人脸 左边最右位置:" + tlr + " 当前位置:" + point43.right);
+        if (point43.left < tlx) {
             data[0] = 1;
-        } else if (point43.x > dw + 20) {
+        } else if (point43.right > tlr) {
             data[0] = 2;
         }
         BleUtil.getInstance().write(data);
@@ -996,7 +1048,7 @@ public class MainScreen extends TBaseScreen {
     @Override
     public void onResume() {
         super.onResume();
-        if(!isStarted) {
+        if (!isStarted) {
             mCameraView.onResume();
         }
     }
@@ -1004,7 +1056,7 @@ public class MainScreen extends TBaseScreen {
     @Override
     public void onPause() {
         super.onPause();
-        if(!isStarted) {
+        if (!isStarted) {
             mCameraView.onPause();
         }
     }

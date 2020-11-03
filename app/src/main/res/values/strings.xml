@@ -180,6 +180,7 @@
     <string name="quxiaokaiqizhibogensui">确定取消直播跟随?</string>
     <string name="kaiqirenliangensuihoutai">已开启人脸跟随\n支持后台运行</string>
     <string name="dianjiquxiaogensui">点击取消跟随</string>
+    <string name="shebeiyidkai">设备已断开</string>
 
     <string-array name="values">
         <item>关闭</item>

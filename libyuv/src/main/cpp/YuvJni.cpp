@@ -1,6 +1,10 @@
 #include <jni.h>
+#include <android/log.h>
 #include <string>
 #include "libyuv.h"
+
+#define LOG_TAG  "C_TAG"
+#define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
 //分别用来存储1420，1420缩放，I420旋转和镜像的数据
 static jbyte *Src_i420_data;
@@ -207,6 +211,38 @@ Java_com_libyuv_util_YuvUtil_yuvI420ToNV21(JNIEnv *env, jclass type, jbyteArray 
             (uint8 *) src_nv21_y_data, width,
             (uint8 *) src_nv21_vu_data, width,
             width, height);
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_libyuv_util_YuvUtil_yuvLight(JNIEnv *env, jclass type, jbyteArray nv21Src,
+                                      jbyteArray nv21Rec,
+                                      jint width, jint height, jint light) {
+
+    jbyte *src_nv21_src_data = env->GetByteArrayElements(nv21Src, NULL);
+    jbyte *src_nv21_rec_data = env->GetByteArrayElements(nv21Rec, NULL);
+
+    jint src_y_size = width * height;
+
+    for (jint i = 0; i < src_y_size; i++) {
+        jbyte cs = src_nv21_src_data[i];
+        jint sx = (uint8) cs;
+
+        jint byteX = ((jfloat) sx) / 100 * light;
+        if (byteX > 255) {
+            src_nv21_rec_data[i] = (jbyte) 255;
+        } else {
+            src_nv21_rec_data[i] = (jbyte) byteX;
+        }
+    }
+
+    jint wh = src_y_size - 1;
+    for (jint i = 0; i < wh / 2; i++) {
+        src_nv21_rec_data[wh + i] = src_nv21_src_data[wh + i];
+    }
+
+    env->ReleaseByteArrayElements(nv21Src, src_nv21_src_data, JNI_FALSE);
+    env->ReleaseByteArrayElements(nv21Rec, src_nv21_rec_data, JNI_FALSE);
 }
 
 

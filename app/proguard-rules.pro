@@ -596,3 +596,9 @@
 
 -dontwarn com.alibaba.android.mnnkit.**
 -keep class com.alibaba.android.mnnkit.**{*;}
+
+-dontwarn com.alibaba.android.mnn.**
+-keep class com.alibaba.android.mnn.**{*;}
+
+-dontwarn com.alibaba.fastjson.**
+-keep class com.alibaba.fastjson.**{*;}

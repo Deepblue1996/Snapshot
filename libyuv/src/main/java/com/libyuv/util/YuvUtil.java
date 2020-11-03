@@ -60,4 +60,14 @@ public class YuvUtil {
      * @param width   输出的高
      **/
     public static native void yuvI420ToNV21(byte[] i420Src, byte[] nv21Src, int width, int height);
+
+    /**
+     * 亮度调整
+     *
+     * @param i420Src 原始I420数据
+     * @param nv21Src 转化后的NV21数据
+     * @param width   输出的宽
+     * @param width   输出的高
+     **/
+    public static native void yuvLight(byte[] nv21Src, byte[] nv21Rec, int width, int height, int light);
 }

@@ -23,6 +23,7 @@ import com.deep.snapshot.util.AudioRecordUtil;
 import com.deep.snapshot.util.AvcEncoder;
 import com.deep.snapshot.util.FileUtil;
 import com.deep.snapshot.util.NV21RotateUtil;
+import com.deep.snapshot.util.NV21rgbUtil;
 import com.deep.snapshot.view.MainScreen;
 
 import java.io.ByteArrayOutputStream;
@@ -380,6 +381,14 @@ public class CameraView extends SurfaceView implements SurfaceHolder.Callback, C
             return;
         }
         previewCallbackCount = 0;
+
+//        Lag.i("转换亮度 时间:" + System.currentTimeMillis());
+//
+//        //byte[] bytes = NV21rgbUtil.b2t(bytesEx, mPreviewSize.width, mPreviewSize.height, 150);
+////        byte[] bytes = new byte[mPreviewSize.width * mPreviewSize.height * 3 / 2];
+////        YuvUtil.yuvLight(bytesEx, bytes, mPreviewSize.width, mPreviewSize.height, 150);
+//
+//        Lag.i("转换亮度完毕 时间:" + System.currentTimeMillis());
 
         if (mPreviewCallback != null) {
             mPreviewCallback.onPreviewFrame(bytes, mPreviewSize.width, mPreviewSize.height, mOrientationAngle);
