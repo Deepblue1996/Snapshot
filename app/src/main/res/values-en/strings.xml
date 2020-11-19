@@ -181,6 +181,7 @@
     <string name="kaiqirenliangensuihoutai">Face following \n enabled for background running</string>
     <string name="dianjiquxiaogensui">Click unfollow</string>
     <string name="shebeiyidkai">Device disconnected</string>
+    <string name="lijikaishi">Begin</string>
 
     <string-array name="values">
         <item>Off</item>

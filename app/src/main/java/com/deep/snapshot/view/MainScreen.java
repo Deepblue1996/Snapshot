@@ -9,7 +9,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.hardware.SensorManager;
@@ -40,7 +39,6 @@ import com.alibaba.android.mnnkit.entity.MNNCVImageFormat;
 import com.alibaba.android.mnnkit.entity.MNNFlipType;
 import com.alibaba.android.mnnkit.intf.InstanceCreatedListener;
 import com.clj.fastble.callback.BleGattCallback;
-import com.clj.fastble.callback.BleScanCallback;
 import com.clj.fastble.data.BleDevice;
 import com.clj.fastble.exception.BleException;
 import com.deep.dpwork.annotation.DpLayout;
@@ -133,6 +131,10 @@ public class MainScreen extends TBaseScreen {
     public LinearLayout timeLinTextLin;
     @BindView(R.id.timeLinText)
     public TextView timeLinText;
+    @BindView(R.id.beginImg)
+    public ImageView beginImg;
+    @BindView(R.id.beginTouch)
+    public LinearLayout beginTouch;
 
     @BindView(R.id.picImg)
     public ImageView picImg;
@@ -451,6 +453,19 @@ public class MainScreen extends TBaseScreen {
             public void stop(long time) {
             }
         });
+        if(CoreApp.appData.isFirst) {
+            beginTouch.setVisibility(View.VISIBLE);
+            beginImg.setVisibility(View.VISIBLE);
+        } else {
+            beginTouch.setVisibility(View.GONE);
+            beginImg.setVisibility(View.GONE);
+        }
+        beginTouch.setOnClickListener(v -> {
+            CoreApp.appData.isFirst = false;
+            DBUtil.save(CoreApp.appData);
+            beginTouch.setVisibility(View.GONE);
+            beginImg.setVisibility(View.GONE);
+        });
     }
 
     /**
@@ -476,7 +491,7 @@ public class MainScreen extends TBaseScreen {
             runUi(() ->
                     textToastDialogScreen.closeEx(() -> {
                         CoreApp.appData.photoPath = mCameraView.tempPathName;
-                        DBUtil.save(CoreApp.appData.photoPath);
+                        DBUtil.save(CoreApp.appData);
                         switchCamera.setVisibility(View.VISIBLE);
                         ViewAnimator.animate(timeLinTextLin).alpha(1, 0).duration(500).start();
                         takeTouch.setImageResource(R.mipmap.ic_take_video);
